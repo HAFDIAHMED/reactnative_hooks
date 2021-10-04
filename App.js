@@ -1,22 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 function App(props) {
   const [count,setCount]=useState(0);
+  const [age,setAge]=useState(23);
+
+  useEffect(() => {
+    console.log(`Hello I'm ${count}`);
+  });
+ 
   function Counter(){
     return (
       setCount(count+1)
 
     );
   }
+  
   return (
     <View style={styles.container}>
-      <Text>hello {count} times</Text> 
+      <Text>you pushed {count} times</Text> 
       <Button 
       title="add count"
       onPress={()=>Counter()}
       />
+      <Text>Enter your age:</Text>
+      <TextInput
+      placeholder={"Age"}
+      onChangeText={age=>setAge(age)}
+      value={age}
+
+      />
+      <Text>you are {age} years old</Text>
 
 
     </View>
