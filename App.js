@@ -1,45 +1,34 @@
- import { useState } from 'react';
- import React from 'react';
- import { StatusBar } from 'expo-status-bar';
- import { StyleSheet, Text, View, Button ,TextInput} from 'react-native';
+import React, { useState } from 'react';
 
-function Example() {
-  // Declaración de una variable de estado que llamaremos "count"
-  const [count, setCount] = useState(0);
-  const [age,setAge]=useState(11);
-  function addCout (){
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, Button } from 'react-native';
+function App(props) {
+  const [count,setCount]=useState(0);
+  function Counter(){
     return (
-      setCount(count +1)
-    );
-   
-  }
+      setCount(count+1)
 
+    );
+  }
   return (
     <View style={styles.container}>
-      <Text>You clicked {count} times</Text>
-
+      <Text>hello {count} times</Text> 
       <Button 
-      title="Click me"
-      onPress={()=>addCout()}
-     
-      
-       />
-       <Text> enter your age here : </Text>
-       
-       <Text>You are {age} years old</Text>
+      title="add count"
+      onPress={()=>Counter()}
+      />
 
-        
-      
+
     </View>
   );
 }
-export default Example;
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f7f7f7',
 
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+export default App;
+const styles = StyleSheet.create({
+  container : {
+    flex : 1,
+    justifyContent : 'center',
+    alignItems : 'center'
+
+  }
 })
