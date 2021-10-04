@@ -5,9 +5,11 @@ import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 function App(props) {
   const [count,setCount]=useState(0);
   const [age,setAge]=useState(23);
+  const [task,setTask]=useState("task 0");
+  const [tasks,setTasks]=useState(["task 1"]);
 
   useEffect(() => {
-    console.log(`Hello I'm ${count}`);
+    console.log(tasks.length);
   });
  
   function Counter(){
@@ -16,22 +18,39 @@ function App(props) {
 
     );
   }
+  function addTask(){
+    return (
+      setTasks([...tasks,task]),
+      setTask(null)
+    );
+
+  }
+  const Tache=(name) =>{
+
+    return (
+      <View>
+        <Text>{name.text}</Text>
+      </View>
+    );
+  }
   
   return (
     <View style={styles.container}>
-      <Text>you pushed {count} times</Text> 
-      <Button 
-      title="add count"
-      onPress={()=>Counter()}
-      />
-      <Text>Enter your age:</Text>
+      <Text>Add your task:</Text> 
       <TextInput
-      placeholder={"Age"}
-      onChangeText={age=>setAge(age)}
-      value={age}
+      placeholder={"task"}
+      onChangeText={task=>setTask(task)}
+      //value={task}
 
       />
-      <Text>you are {age} years old</Text>
+      <Button 
+      title="add task"
+      onPress={()=>addTask()}   
+      />
+     <Tache text="ana lawala"/>
+      
+      
+      
 
 
     </View>
